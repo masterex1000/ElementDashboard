@@ -1,0 +1,112 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans MS", "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+
+    color: white;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.largeMessage {
+    font-size: 10vmin;
+}
+
+.mediumMessage {
+    font-size: 7vmin;
+}
+
+.app {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    transition: background-color 1s;
+    background-color: #575050;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.widget-status {
+    grid-column: 1 / 2;
+    grid-row: 1;
+}
+
+.widget-large-cam {
+    grid-column: 2 / 4;
+    grid-row: 1 / 3;
+}
+
+.widget-small-cam {
+    grid-row: 3 / 4;
+    grid-column: 2 / 4;
+}
+
+.widget-side-left-info {
+    grid-column: 1;
+    grid-row: 2 / 4;
+}
+
+.widget-side-right-info {
+    grid-column: 4;
+    grid-row: 1 / 4;
+}
+
+.widget-fullsize {}
+
+.camera-fullsize {
+    height: 100%;
+    overflow: hidden;
+}
+
+.widget {}
+
+/*******************************************
+    Colors!!!
+********************************************/
+
+.widget-orange {
+    background-color: #ec663c;
+    color: white;
+}
+
+.widget-blue {
+    background-color: #12b0c5;
+    color: white;
+}
+
+.widget-teal {
+    background-color: #47bbb3;
+    color: white;
+}
+
+.widget-pink {
+    background-color: #9c4274;
+    color: white;
+}
+
+.widget-yellow {
+    background-color: #ff9618;
+    color: white;
+}
+
+img {
+    object-fit: contain;
+}
+
+th,
+td {
+    border: 1px solid white;
+}

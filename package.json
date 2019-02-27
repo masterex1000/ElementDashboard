@@ -1,0 +1,16 @@
+{
+  "name": "elementdashboard",
+  "version": "1.0.0",
+  "description": "A Dashboard program for an frc robot",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Collin Conrad",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "gun": "^0.9.9999991",
+    "wpilib-nt-client": "^1.7.1"
+  }
+}

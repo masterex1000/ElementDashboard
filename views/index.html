@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>ElementDashboard</title>
+  <meta name="description" content="An frc dashboard made with Vue">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- import the webpage's client-side javascript file -->
+  <script src="/client.js" defer></script>
+
+  <!-- Import the development version of vue -->
+  <!-- <script src="https://unpkg.com/vue@2.6.4/dist/vue.js"></script> -->
+  <script src="/vue.js"></script>
+
+  <!-- Import the production version of vue -->
+  <!--<script src="https://unpkg.com/vue@2.6.4/dist/vue.min.js"></script>-->
+
+  <!-- Import Gun -->
+  <script src="/gun.min.js"></script>
+</head>
+
+<body>
+
+  <script type="text/x-template" id="widget-large-cam">
+    <div class="widget">
+      Hello World
+    </div>
+  </script>
+
+  <script type="text/x-template" id="widget-status">
+    <div class="widget">
+      ASDF
+    </div>
+  </script>
+
+  <script type="text/x-template" id="widget-camera">
+    <div class="widget">
+      <img class="camera-fullsize" v-bind:src="streamSource">
+    </div>
+  </script>
+
+  <script type="text/x-template" id="widget-values">
+    <div class="widget">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+        <tr v-for="value in values">
+          <td>
+              {{ value.name }}
+          </td>
+          <td>
+              {{ value.value }}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </script>
+
+  <div id="app" class="app wrapper">
+    <widget-status class="widget-status center widget-teal"></widget-status>
+    <widget-camera class="widget-large-cam center widget-yellow" stream-source="http://10.45.50.36:1181/stream.mjpg"></widget-camera>
+    <widget-camera class="widget-small-cam center widget-yellow" stream-source="http://10.45.50.36:1182/stream.mjpg"></widget-camera>
+    <widget-status class="widget-side-left-info center widget-pink"></widget-status>
+    <widget-values class="widget-side-right-info center widget-orange" v-bind:values="robotValues"></widget-values>
+  </div>
+</body>
+</html>

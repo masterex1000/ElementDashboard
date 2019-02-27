@@ -1,0 +1,9 @@
+{
+    "!--qedfsdfa": "This is the port that you want the server to run on",
+    "!--reertrwe": "NOTE: you will need to modify client.js in order to change the port",
+    "port": 5810,
+
+
+    "!--hdgfdd": "This is the address of your robo-rio, It will be used to connect to the network tables",
+    "networkDashboard": "10.45.50.2"
+}
