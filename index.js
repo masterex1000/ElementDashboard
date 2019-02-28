@@ -22,18 +22,25 @@ var gun = new Gun({
   web: listener
 });
 
-networkTablesClient.start((isConnected, err) => {
-  // Displays the error and the state of connection
-
-
-  console.log(networkTablesClient.getKeys());
-
-  console.log({
+var onNTConnection = function (isConnected, err) {
+  console.log("[Server] ERROR: " + JSON.stringify({
     isConnected,
     err
-  });
+  }));
 
-}, config.networkDashboard);
+  if(!isConnected) {
+    console.log("[Server] There was an error connecting to the network table. We will try reconnecting 7 seconds");
+
+    setTimeout(() => {
+      networkTablesClient.start(onNTConnection, config.networkDashboard);
+    }, 7000);
+
+  } else {
+    console.log("[Server] Connected to the network tables");
+  }
+}
+
+networkTablesClient.start(onNTConnection, config.networkDashboard);
 
 networkTablesClient.addListener((key, val, type, id) => {
   if (key.startsWith("/ElementDashboard/") || key.startsWith("/SmartDashboard/")) {
