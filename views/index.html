@@ -66,8 +66,12 @@
 
   <div id="app" class="app wrapper">
     <widget-status class="widget-status center widget-teal"></widget-status>
-    <widget-camera class="widget-large-cam center widget-yellow" stream-source="http://10.45.50.36:1181/stream.mjpg"></widget-camera>
-    <widget-camera class="widget-small-cam center widget-yellow" stream-source="http://10.45.50.36:1182/stream.mjpg"></widget-camera>
+    <!-- <widget-camera class="widget-large-cam center widget-yellow" stream-source="http://10.45.50.36:1181/stream.mjpg"></widget-camera> -->
+
+    <widget-camera class="widget-large-cam center widget-yellow" v-bind:stream-source="cameratop"></widget-camera>
+
+    <!-- <widget-camera class="widget-small-cam center widget-yellow" stream-source="http://10.45.50.36:1182/stream.mjpg"></widget-camera> -->
+    <widget-camera class="widget-small-cam center widget-yellow" v-bind:stream-source="camerabot"></widget-camera>
     <widget-status class="widget-side-left-info center widget-pink"></widget-status>
     <widget-values class="widget-side-right-info center widget-orange" v-bind:values="robotValues"></widget-values>
   </div>

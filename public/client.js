@@ -85,9 +85,10 @@ new Vue({
     color: '#673AB7', // our background color for the page, will turn based on status of the dashboard,
 
     robotStatus: true,
-    robotValues: [
-      
-    ],
+    robotValues: [],
+
+    cameratop : "http://10.45.50.36:1181/stream.mjpg",
+    camerabot : "http://10.45.50.36:1182/stream.mjpg",
   },
   computed: {
     computedMethod: function () {
@@ -108,7 +109,13 @@ new Vue({
       //console.log("Hello From setBackroundColor!");
 
       //console.log(this.color);
-    }
+    },
+    reloadImages: function () {
+      console.log("Reloading images");
+      this.cameratop = "http://10.45.50.36:1181/stream.mjpg?" + Date.now();
+      this.camerabot = "http://10.45.50.36:1182/stream.mjpg?" + Date.now();
+      console.log("http://10.45.50.36:1182/stream.mjpg?" + Date.now());
+    },
   },
   created() {
     var self = this;
@@ -140,6 +147,11 @@ new Vue({
               "name": key,
               "value": val[key],
             });
+          }
+
+          if(key == "rstatus") {
+            console.log("Reloading cameras");
+            self.reloadImages();
           }
         }
       }
