@@ -89,6 +89,8 @@ new Vue({
 
     cameratop : "http://10.45.50.36:1181/stream.mjpg",
     camerabot : "http://10.45.50.36:1182/stream.mjpg",
+
+    cameraToggle: 0,
   },
   computed: {
     computedMethod: function () {
@@ -112,9 +114,23 @@ new Vue({
     },
     reloadImages: function () {
       console.log("Reloading images");
-      this.cameratop = "http://10.45.50.36:1181/stream.mjpg?" + Date.now();
-      this.camerabot = "http://10.45.50.36:1182/stream.mjpg?" + Date.now();
-      console.log("http://10.45.50.36:1182/stream.mjpg?" + Date.now());
+      //var image = "/failure.jpg";
+      var image = "";
+      
+      if(this.cameraToggle == 0)
+        this.cameratop = "http://10.45.50.36:1181/stream.mjpg?" + Date.now();
+      else {
+        //this.cameratop = image;
+        this.cameratop = "http://10.45.50.36:1182/stream.mjpg?" + Date.now()
+      }
+
+      // if(this.cameraToggle == 1)
+      // this.camerabot = "http://10.45.50.36:1182/stream.mjpg?" + Date.now();
+      // else {
+      //   this.camerabot = image;
+      // }
+      this.camerabot = image;
+      //console.log("http://10.45.50.36:1182/stream.mjpg?" + Date.now());
     },
   },
   created() {
@@ -151,6 +167,11 @@ new Vue({
 
           if(key == "rstatus") {
             console.log("Reloading cameras");
+            self.reloadImages();
+          }
+          if(key == "cameraToggle") { // 0 top, 1 lower
+            console.log("Toggling cameras");
+            self.cameraToggle = val[key];
             self.reloadImages();
           }
         }
