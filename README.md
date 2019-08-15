@@ -1,5 +1,12 @@
 # Element Dashboard
 
+NOTE: This is still in development and it dosen't look very
+good right now.
+
+Element Dashboard is a flexable dashboard system intended
+for use in the First Robotics Competition.
+
+
 ### Requirements
 
     - Node.js && npm
