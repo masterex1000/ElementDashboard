@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
-    "gun": "^0.9.9999991",
+    "gun": "^0.2019.416",
     "wpilib-nt-client": "^1.7.1"
   }
 }
